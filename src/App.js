@@ -1,28 +1,30 @@
-import React, { Component } from 'react';
+import React, { useState } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import ColorSelector from './components/ColorSelector';
+import ColorDisplay from './components/ColorDisplay';
 
-class App extends Component {
-  render() {
-    return (
+export const AppContext = React.createContext();
+
+const App = () => {
+  const [state, setState] = useState({ color: 'white' });
+
+  return (
+    <AppContext.Provider
+      value={{
+        state,
+        setState
+      }}
+    >
       <div className="App">
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
+          <ColorSelector />
+          <ColorDisplay />
         </header>
       </div>
-    );
-  }
-}
+    </AppContext.Provider>
+  );
+};
 
 export default App;
