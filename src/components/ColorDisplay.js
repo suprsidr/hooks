@@ -1,10 +1,21 @@
 import React, { useContext } from 'react';
+import styled from 'styled-components';
 import { AppContext } from '../App';
+
+const Ball = styled.div`
+  height: ${props => props.radius + 'px'};
+  width: ${props => props.radius + 'px'};
+  background: ${props => props.color};
+  background: radial-gradient(
+    ellipse at center,
+    white 0%,
+    ${props => props.color} 100%
+  );
+  border-radius: ${props => props.radius + 'px'};
+`;
 
 export default () => {
   const { state } = useContext(AppContext);
 
-  return (
-    <div style={{ background: state.color, height: '100px', width: '100px' }} />
-  );
+  return <Ball {...state} />;
 };

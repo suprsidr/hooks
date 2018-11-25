@@ -7,7 +7,7 @@ import ColorDisplay from './components/ColorDisplay';
 export const AppContext = React.createContext();
 
 const App = () => {
-  const [state, setState] = useState({ color: 'white' });
+  const [state, setState] = useState({ color: 'white', radius: 100 });
 
   return (
     <AppContext.Provider
