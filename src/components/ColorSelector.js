@@ -5,13 +5,8 @@ const arr = ['white', 'yellow', 'blue', 'red', 'black'];
 
 export default () => {
   const { state, setState } = useContext(AppContext);
-  const changeHandler = e => {
-    const newState = {
-      ...state,
-      color: e.target.value
-    };
-    setState(newState);
-  };
+  const changeHandler = e => setState({ color: e.target.value });
+
   return (
     <select value={state.color} onChange={changeHandler}>
       {arr.map(i => (

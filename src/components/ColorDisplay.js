@@ -11,7 +11,7 @@ const Ball = styled.div`
     white 0%,
     ${props => props.color} 100%
   );
-  border-radius: ${props => props.radius + 'px'};
+  border-radius: 50%;
 `;
 
 export default () => {
